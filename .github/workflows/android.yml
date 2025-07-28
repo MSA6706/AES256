@@ -8,10 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
@@ -34,16 +35,3 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: Build Android APK
-        run: |
-          npm install --save @capacitor/android
-          npx cap add android
-          cd android
-          ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: android-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
