@@ -1,4 +1,4 @@
-# Run and deploy your MSA APP
+# Run and deploy your 256 APP
 
 This contains everything you need to run your app locally.
 
